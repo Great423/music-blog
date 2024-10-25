@@ -1,0 +1,95 @@
+
+.loader {
+    align-items: center;
+    justify-content: center;
+    /* height: 100%; */
+  }
+  #wave {
+    height: 70px;
+    width: 70px;
+    fill: rgb(1, 1, 1);
+  }
+  #Line_1 {
+    animation: pulse 1s infinite;
+    animation-delay: 0.15s;
+  }
+  #Line_2 {
+    animation: pulse 1s infinite;
+    animation-delay: 0.3s;
+  }
+  #Line_3 {
+    animation: pulse 1s infinite;
+    animation-delay: 0.45s;
+  }
+  #Line_4 {
+    animation: pulse 1s infinite;
+    animation-delay: 0.6s;
+  }
+  #Line_5 {
+    animation: pulse 1s infinite;
+    animation-delay: 0.75s;
+  }
+  #Line_6 {
+    animation: pulse 1s infinite;
+    animation-delay: 0.9s;
+  }
+  #Line_7 {
+    animation: pulse 1s infinite;
+    animation-delay: 1.05s;
+  }
+  #Line_8 {
+    animation: pulse 1s infinite;
+    animation-delay: 1.2s;
+  }
+  #Line_9 {
+    animation: pulse 1s infinite;
+    animation-delay: 1.35s;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scaleY(1);
+      transform-origin: 50% 50%;
+    }
+    50% {
+      transform: scaleY(0.7);
+      transform-origin: 50% 50%;
+    }
+    100% {
+      transform: scaleY(1);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  /* .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25rem;
+    mix-blend-mode: multiply;
+    font-family: 'Raleway', sans-serif;
+  }
+   */
+
+   .svg-clipped-text {
+    -webkit-clip-path: url(#svgTextPath);
+    clip-path: url(#svgTextPath);
+}
+
+  
+
+  /* footer */
+  footer svg {
+    fill: black;
+  }
+
+  ::selection {
+    background-color: #8726dc;
+    color: white;
+}

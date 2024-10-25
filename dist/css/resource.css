@@ -1,0 +1,40 @@
+/* aside {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 73px;
+} */
+
+::selection {
+    background-color: #8726dc;
+    color: white;
+}
+
+.features-list {
+    position: relative;
+    padding-left: 20px;
+}
+
+.features-list::before {
+    background-color: #f73859;
+    content: "";
+    height: 100%;
+    left: 3.5px;
+    position: absolute;
+    top: calc(0.5em - 4px);
+    width: 2px;
+}
+
+.features-list::after {
+    background-color: #fff;
+    border: 1px solid #f73859;
+    border-radius: 50%;
+    box-sizing: border-box;
+    content: "";
+    display: inline-block;
+    flex-shrink: 0;
+    height: 8px;
+    left: 0;
+    position: absolute;
+    top: calc(0.5em - 4px);
+    width: 8px;
+}

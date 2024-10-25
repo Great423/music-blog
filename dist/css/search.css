@@ -1,0 +1,27 @@
+.stroke-dotted {
+    opacity: 0;
+    stroke-dasharray: 4,5;
+    stroke-width: 1px;
+    transform-origin: 50% 50%;
+    animation: spin 4s infinite linear;
+    transition: opacity 1s ease, 
+                stroke-width 1s ease;
+  }
+  .stroke-solid {
+    stroke-dashoffset: 0;
+    stroke-dashArray: 300;
+    stroke-width: 4px;
+    transition: stroke-dashoffset 1s ease, 
+                opacity 1s ease;
+  }
+  
+  .icon {
+    transform-origin: 50% 50%;
+    transition: transform 200ms ease-out;
+  }
+  
+  
+  ::selection {
+    background-color: #8726dc;
+    color: white;
+}

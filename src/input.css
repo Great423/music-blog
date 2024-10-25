@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    object-fit: cover;
+}
+
+
+.increase-width {
+    width: 14rem;
+}
+
+@media (min-width: 768px) {
+    .increase-width {
+        width: 20rem;
+    }
+}

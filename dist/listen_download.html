@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Blog</title>
+  <link rel="stylesheet" href="./css/output.css">
+  <link rel="stylesheet" href="./css/listen_download.css">
+  <!-- splide css -->
+  <link rel="stylesheet" href="/node_modules/@splidejs/splide/dist/css/splide.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css">
+  <!-- fontawesome icons -->
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.min.css">
+  <style>
+    .stick {
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);;
+      transition: .6s;
+    }
+
+    aside {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 73px;
+    }
+  </style>
+</head>
+<body class="relative overflow-x-hidden">
+    <nav class="px-2 sm:px-4 py-2.5 dark:bg-gray-900 bg-white fixed w-full z-[700] top-0 left-0">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <a href="index.html" class="flex items-center">
+                <img src="" class="mr-3 h-6 sm:h-9" alt="Logo">
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">VideoTunz</span>
+            </a>
+            <div class="flex md:order-2 gap-5 items-center">
+                <div class="search-container relative h-[3rem] w-[3rem] cursor-pointer mr-4">
+                    <span class="search-toggle-btn absolute left-0 top-0 z-[100] bg-white flex items-center justify-center cursor-pointer lg:flex shadow-md rounded-full w-[3rem] h-[3rem]"><i class="fa fa-search text-xl text-black dark:text-white" aria-hidden="true"></i></span>
+                    <input type="search" placeholder="search here..." class="search-input absolute top-0 right-0 z-[50] transform outline-none px-4 shadow-md border transition-all rounded-full h-[3rem] w-[3rem]">
+                </div>
+                <button type="button" class="px-5 py-2 hidden lg:block text-white shadow-lg shadow-red-500 bg-red-600 hover:bg-red-500 rounded-md">Get started</button>
+                <button data-collapse-toggle="navbar-sticky" type="button" class="nav-button inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+            <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul class="flex flex-col p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">CATALOGUE</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">SONGS</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">NEW ALBUMS</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">GENRES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mt-[73px]">
+        <div class="container mx-auto flex flex-col lg:flex-row justify-between">
+            <!-- main -->
+            <main class="lg:w-[70%]">
+                <section class="showcase relative overflow-hidden bg-center bg-[url('https://source.unsplash.com/random/?blackguy')] md:bg-[url('https://source.unsplash.com/random/?person')] md:bg-left" style="background-size: cover;">
+                    <div class="container p-8 h-full bg-gradient-to-t from-black to-transparent bg-opacity-25">
+                        <div class="flex flex-col items-start justify-center md:w-1/2 h-full gap-7">
+                            <div class="flex flex-col items-start gap-2">
+                                <p class="text-white">Song by Elevation Worship and Maverick City Music</p>
+                                <h2 class="text-4xl font-bold text-white">Wait On The Lord</h2>
+                            </div>
+                            <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolores quibusdam soluta,
+                            mollitia laboriosam odit maiores id vitae nemo veniam quaerat dolor maxime modi officiis.
+                            </p>
+                            <div class="flex flex-col md:flex-row md:items-center gap-7 md:gap-20 text-white">
+                                <div class="flex items-center gap-3">
+                                    <button class="px-4 py-2 text-white shadow-lg shadow-red-500 bg-red-600 hover:bg-red-500 rounded-md">Download</button>
+                                    <i class="fa-solid fa-share-nodes text-3xl text-gray-200"></i>
+                                </div>
+                                <div class="flex gap-4">
+                                    <span class="flex items-center gap-2">
+                                        <span class="text-white font-bold">500M+</span>
+                                        <p class=""><i class="fa fa-download" aria-hidden="true"></i></p>
+                                    </span>
+                                    <span class="text-white bg-black bg-opacity-60 p-1 rounded-md flex items-center gap-2">
+                                        <span class="font-bold">100k</span>
+                                        <p class=""><i class="fa fa-eye" aria-hidden="true"></i></p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="absolute right-0 top-0 w-1/2 h-full p-10 overflow-hidden hidden md:block">
+                        <img src="https://source.unsplash.com/random/?blackguy" alt="" class="w-full h-full object-cover rounded-md" style="-webkit-mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,.8)));">
+                    </div>
+                </section>
+
+                <div class="audio-player w-full md:w-[360px]">
+                    <div class="timeline">
+                      <div class="progress"></div>
+                    </div>
+                    <div class="controls">
+                      <div class="play-container">
+                        <div class="toggle-play play">
+                      </div>
+                      </div>
+                      <div class="time">
+                        <div class="current">0:00</div>
+                        <div class="divider">/</div>
+                        <div class="length"></div>
+                      </div>
+                      <div class="name">Music Song</div>
+                      <div class="volume-container">
+                        <div class="volume-button">
+                          <div class="volume icono-volumeMedium"></div>
+                        </div>
+                        
+                        <div class="volume-slider">
+                          <div class="volume-percentage"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <section class="lyrics mt-8"> 
+                    <div class="container px-8">
+                        <h1 class="font-bold text-4xl">Lyrics</h1>
+                        <div class="flex flex-col items-start mt-5">
+                            <p class="font-bold text-xl">Wait The Lord Lyrics.</p>
+                            <div class="mt-3 w-1/2 flex flex-col items-start gap-5">
+                                <div>
+                                    <p class="text-lg">[ <span class="font-bold">Verse 1</span> ]</p>
+                                    <p>I don’t Believe in Fairy Tales <br>
+                                        I guess I’ve outgrown them <br>
+                                        But that doesn’t mean <br>
+                                        That I don’t Believe <br>
+                                        That there’s something <br>
+                                        Bigger than me <br> <br>
+                                        
+                                        Cause I’ve seen in a Hospital Room <br>
+                                        When the Doctor said Sorry <br>
+                                        There’s nothing more we can do <br>
+                                        Well it wasn’t True <br>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="text-lg">[ <span class="font-bold">Verse 2</span> ]</p>
+                                    <p>
+                                        I’ve never seen a Pot of Gold <br>
+                                        At the End of a Rainbow <br>
+                                        But I’ve got a Promise I can Hold <br>
+                                        In the Middle of the struggle <br>
+                                        God if you said it You’ll Perform it <br>
+                                        May not be how I want You to <br>
+                                        But here’s what I’ll do <br> <br>
+                                        
+                                        <span class="text-lg">[ <span class="font-bold">Chorus</span> ]</span><br>
+                                        I’m gonna Wait on You <br>
+                                        I’m gonna Wait on You <br>
+                                        I’ve Tasted your Goodness <br>
+                                        I’ll Trust in your Promise <br>
+                                        I’m gonna Wait on You <br>
+                                        I’m gonna Wait on You <br>
+                                        I’ve Tasted your Goodness <br>
+                                        I’ll Trust in your Promise <br>
+                                        I’m gonna Wait on You <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="image-carousel3" class="splide w-full mt-7" aria-label="Beautiful Images">
+                    <div class="splide__track w-full py-2">
+                        <ul class="splide__list flex justify-between items-center gap-5" style="height: auto;">
+                            <li class="splide__slide">
+                                <div class="flex flex-col justify-between gap-2 group">
+                                    <div class="relative transition-all hover:shadow-gray-00"> 
+                                        <img src="https://source.unsplash.com/random/?happy')" alt="" class="w-full h-[200px] rounded-md">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="flex flex-col justify-between gap-2 group">
+                                    <div class="relative transition-all hover:shadow-gray-00"> 
+                                        <img src="https://source.unsplash.com/random/?happy')" alt="" class="w-full h-[200px] rounded-md">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="flex flex-col justify-between gap-2 group">
+                                    <div class="relative transition-all hover:shadow-gray-00"> 
+                                        <img src="https://source.unsplash.com/random/?happy')" alt="" class="w-full h-[200px] rounded-md">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <section class="mt-8">
+                    <div class="container md:px-8">
+                        <!-- useful links -->
+                        <div class="w-full mt-5 relative">
+                            <div class="mb-1 px-4 flex justify-between items-center">
+                                <h2 class="font-semibold text-xl">Related Songs:</h2>
+                                <a href="category.html" class="flex items-center gap-5">
+                                    <p class="font-semibold text-gray-600 dark:text-gray-400">See All</p>
+                                    <i class="fa-solid fa-arrow-right text-gray-700"></i>
+                                </a>
+                            </div>
+                            <div id="image-carousel2" class="splide w-full" aria-label="Beautiful Images">
+                                <div class="splide__track w-full py-2">
+                                    <ul class="splide__list flex justify-between items-center gap-5" style="height: auto;">
+                                        <li class="splide__slide">
+                                            <div class="flex flex-col justify-between gap-2 group">
+                                                <div class="relative shadow-lg transition-all hover:shadow-gray-00"> 
+                                                    <a href="#" class="absolute top-1/2 left-1/2 transition-all duration-500 transform -translate-x-1/2 group-hover:-translate-y-1/2 text-white text-4xl opacity-0 group-hover:opacity-100"><i class="fa fa-play text-white text-[48px]"></i></a>
+                                                    <span class="bg-red-600 px-4 text-white absolute left-0 bottom-0"><i class="fa fa-download" aria-hidden="true"></i></span>
+                                                    <img src="https://source.unsplash.com/random/?waters')" alt="" class="w-full h-[200px] rounded-md shadow-lg">
+                                                </div>
+                                                <div class="flex flex-col gap-1">
+                                                    <h2 class="font-bold">Lorem Impsum</h2>
+                                                    <p class="text-gray-700 dark:text-gray-400 text-sm">Horem Impsum</p>    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="splide__slide">
+                                            <div class="flex flex-col justify-between gap-2 group">
+                                                <div class="relative shadow-lg transition-all hover:shadow-gray-00"> 
+                                                    <a href="#" class="absolute top-1/2 left-1/2 transition-all duration-500 transform -translate-x-1/2 group-hover:-translate-y-1/2 text-white text-4xl opacity-0 group-hover:opacity-100"><i class="fa fa-play text-white text-[48px]"></i></a>
+                                                    <span class="bg-red-600 px-4 text-white absolute left-0 bottom-0"><i class="fa fa-download" aria-hidden="true"></i></span>
+                                                    <img src="https://source.unsplash.com/random/?music')" alt="" class="w-full h-[200px] rounded-md shadow-lg">
+                                                </div>
+                                                <div class="flex flex-col gap-1">
+                                                    <h2 class="font-bold">Lorem Impsum</h2>
+                                                    <p class="text-gray-700 dark:text-gray-400 text-sm">Horem Impsum</p>    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="splide__slide">
+                                            <div class="flex flex-col justify-between gap-2 group">
+                                                <div class="relative shadow-lg transition-all hover:shadow-gray-00"> 
+                                                    <a href="#" class="absolute top-1/2 left-1/2 transition-all duration-500 transform -translate-x-1/2 group-hover:-translate-y-1/2 text-white text-4xl opacity-0 group-hover:opacity-100"><i class="fa fa-play text-white text-[48px]"></i></a>
+                                                    <span class="bg-red-600 px-4 text-white absolute left-0 bottom-0"><i class="fa fa-download" aria-hidden="true"></i></span>
+                                                    <img src="https://source.unsplash.com/random/?musical')" alt="" class="w-full h-[200px] rounded-md shadow-lg">
+                                                </div>
+                                                <div class="flex flex-col gap-1">
+                                                    <h2 class="font-bold">Lorem Impsum</h2>
+                                                    <p class="text-gray-700 dark:text-gray-400 text-sm">Horem Impsum</p>    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="splide__slide">
+                                            <div class="flex flex-col justify-between gap-2 group">
+                                                <div class="relative shadow-lg transition-all hover:shadow-gray-00"> 
+                                                    <a href="#" class="absolute top-1/2 left-1/2 transition-all duration-500 transform -translate-x-1/2 group-hover:-translate-y-1/2 text-white text-4xl opacity-0 group-hover:opacity-100"><i class="fa fa-play text-white text-[48px]"></i></a>
+                                                    <span class="bg-red-600 px-4 text-white absolute left-0 bottom-0"><i class="fa fa-download" aria-hidden="true"></i></span>
+                                                    <img src="https://source.unsplash.com/random/?singing')" alt="" class="w-full h-[200px] rounded-md shadow-lg">
+                                                </div>
+                                                <div class="flex flex-col gap-1">
+                                                    <h2 class="font-bold">Lorem Impsum</h2>
+                                                    <p class="text-gray-700 dark:text-gray-400 text-sm">Horem Impsum</p>    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="splide__slide">
+                                            <div class="flex flex-col justify-between gap-2 group">
+                                                <div class="relative shadow-lg transition-all hover:shadow-gray-00"> 
+                                                    <a href="#" class="absolute top-1/2 left-1/2 transition-all duration-500 transform -translate-x-1/2 group-hover:-translate-y-1/2 text-white text-4xl opacity-0 group-hover:opacity-100"><i class="fa fa-play text-white text-[48px]"></i></a>
+                                                    <span class="bg-red-600 px-4 text-white absolute left-0 bottom-0"><i class="fa fa-download" aria-hidden="true"></i></span>
+                                                    <img src="https://source.unsplash.com/random/?dancing')" alt="" class="w-full h-[200px] rounded-md shadow-lg">
+                                                </div>
+                                                <div class="flex flex-col gap-1">
+                                                    <h2 class="font-bold">Lorem Impsum</h2>
+                                                    <p class="text-gray-700 dark:text-gray-400 text-sm">Horem Impsum</p>    
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+    
+            <!-- aside -->
+            <aside class="dark:bg-gray-900 px-4 w-full lg:w-[30%] h-screen sticky  sm:block xl:max-w-[504px]">
+                <div class="container h-full px-4 shadow-md">
+                    <h4 class="mt-5 text-xl font-semibold">Other Songs</h4>
+    
+                    <div class="flex flex-col mt-5">
+                        <div class="flex items-center gap-3 border-b py-4">
+                            <img src="https://source.unsplash.com/random/?person" alt="" class="object-cover rounded-md w-[40px] h-[40px]">
+                            <div class="flex-flex-col jusitfy-center">
+                                <h5 class="font-semibold text-lg">I Wanna Be In The Cavalry</h5>
+                                <p class="text-gray-600">Jeremy Scott</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 border-b py-4">
+                            <img src="https://source.unsplash.com/random/?man" alt="" class="object-cover rounded-md w-[40px] h-[40px]">
+                            <div class="flex-flex-col jusitfy-center">
+                                <h5 class="font-semibold text-lg">I Wanna Be In The Cavalry</h5>
+                                <p class="text-gray-600">Jeremy Scott</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 border-b py-4">
+                            <img src="https://source.unsplash.com/random/?lady" alt="" class="object-cover rounded-md w-[40px] h-[40px]">
+                            <div class="flex-flex-col jusitfy-center">
+                                <h5 class="font-semibold text-lg">I Wanna Be In The Cavalry</h5>
+                                <p class="text-gray-600">Jeremy Scott</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 border-b py-4">
+                            <img src="https://source.unsplash.com/random/?guy" alt="" class="object-cover rounded-md w-[40px] h-[40px]">
+                            <div class="flex-flex-col jusitfy-center">
+                                <h5 class="font-semibold text-lg">I Wanna Be In The Cavalry</h5>
+                                <p class="text-gray-600">Jeremy Scott</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 border-b py-4">
+                            <img src="https://source.unsplash.com/random/?girl" alt="" class="object-cover rounded-md w-[40px] h-[40px]">
+                            <div class="flex-flex-col jusitfy-center">
+                                <h5 class="font-semibold text-lg">I Wanna Be In The Cavalry</h5>
+                                <p class="text-gray-600">Jeremy Scott</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="pb-12 pt-[100px] z-10 relative bg-[#FCF7EF]">
+        <div class="container lg:px-24 w-full px-4 mx-auto md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1320px]">
+        <div class="flex flex-wrap">
+            <div data-aos="fade-up" class="w-full md:w-1/2 lg:w-1/3">
+            <div class="mb-10">
+                <h2 class="leading-5 font-bold text-3xl mb-5">Let's Talk</h2>
+                <h3 class="opacity-70 font-bold text-2xl mb-2">Contact Info</h3>
+                <p class="text-base mb-1">emailaddress@gmail.com</p>
+                <p class="text-base mb-1">12 Hilton St, somewhere street</p>
+                <p class="text-base mb-1">+00 123 45 5678</p>
+            </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200" class="w-full md:w-1/2 lg:w-1/3">
+            <div class="mb-10">
+                <h3 class="font-semibold text-xl mb-9">Quick Links</h3>
+                <ul>
+                    <li>
+                        <a href="index.html" class="text-base inline-block mb-3">VideoTunz</a>
+                    </li>
+                    <li>
+                        <a href="all_resources.html" class="text-base inline-block mb-3">Resources</a>
+                    </li>
+                    <li>
+                        <a href="songs_blog.html" class="text-base inline-block mb-3">Music Blog</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300" class="w-full md:w-1/2 lg:w-1/3">
+            <div class="mb-10">
+                <h3 class="font-semibold text-xl mb-9">Other Links</h3>
+                <ul>
+                <li><a href="#" class="text-base inline-block mb-3">Privacy</a></li>
+                <li><a href="#" class="text-base inline-block mb-3">Terms & Conditions</a></li>
+                <li><a href="#" class="text-base inline-block mb-3">Disclaimer</a></li>
+                <li><a href="#" class="text-base inline-block mb-3">FAQ</a></li>
+                </ul>
+            </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400" class="w-full md:w-1/2 lg:w-1/3">
+                <div class="flex justify-center items-center mb-5">
+                    <a href="" class="flex justify-center items-center w-8 h-8 mx-2" style="color: rgba(149, 156, 177, 1)">
+                    <svg width="32" height="32" viewBox="0 0 32 32" class="a1O" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 16C32 7.1625 24.8375 0 16 0C7.1625 0 0 7.1625 0 16C0 24.8375 7.1625 32 16 32C16.0938 32 16.1875 32 16.2812 31.9937V19.5438H12.8438V15.5375H16.2812V12.5875C16.2812 9.16875 18.3688 7.30625 21.4188 7.30625C22.8813 7.30625 24.1375 7.4125 24.5 7.4625V11.0375H22.4C20.7437 11.0375 20.4188 11.825 20.4188 12.9812V15.5312H24.3875L23.8687 19.5375H20.4188V31.3813C27.1063 29.4625 32 23.3062 32 16Z"></path>
+                    </svg>
+                    </a>
+                    <a href="" class="flex justify-center items-center w-8 h-8 mx-2" style="color: rgba(149, 156, 177, 1)">
+                    <svg width="32" height="32" viewBox="0 0 32 32" class="a1O">
+                        <path d="M19.0625 16C19.0625 17.6914 17.6914 19.0625 16 19.0625C14.3086 19.0625 12.9375 17.6914 12.9375 16C12.9375 14.3086 14.3086 12.9375 16 12.9375C17.6914 12.9375 19.0625 14.3086 19.0625 16Z"></path>
+                        <path d="M23.1621 10.5813C23.0149 10.1824 22.78 9.82129 22.4749 9.5249C22.1785 9.21973 21.8176 8.98486 21.4185 8.83765C21.0947 8.71191 20.6084 8.56226 19.7126 8.52148C18.7437 8.47729 18.4531 8.46777 16 8.46777C13.5466 8.46777 13.2561 8.47705 12.2874 8.52124C11.3916 8.56226 10.905 8.71191 10.5815 8.83765C10.1824 8.98486 9.82129 9.21973 9.52515 9.5249C9.21997 9.82129 8.98511 10.1821 8.83765 10.5813C8.71191 10.905 8.56226 11.3916 8.52148 12.2874C8.47729 13.2561 8.46777 13.5466 8.46777 16C8.46777 18.4531 8.47729 18.7437 8.52148 19.7126C8.56226 20.6084 8.71191 21.0947 8.83765 21.4185C8.98511 21.8176 9.21973 22.1785 9.5249 22.4749C9.82129 22.78 10.1821 23.0149 10.5813 23.1621C10.905 23.2881 11.3916 23.4377 12.2874 23.4785C13.2561 23.5227 13.5464 23.532 15.9998 23.532C18.4534 23.532 18.7439 23.5227 19.7124 23.4785C20.6082 23.4377 21.0947 23.2881 21.4185 23.1621C22.2197 22.853 22.853 22.2197 23.1621 21.4185C23.2878 21.0947 23.4375 20.6084 23.4785 19.7126C23.5227 18.7437 23.532 18.4531 23.532 16C23.532 13.5466 23.5227 13.2561 23.4785 12.2874C23.4377 11.3916 23.2881 10.905 23.1621 10.5813ZM16 20.7175C13.3943 20.7175 11.282 18.6055 11.282 15.9998C11.282 13.394 13.3943 11.282 16 11.282C18.6055 11.282 20.7178 13.394 20.7178 15.9998C20.7178 18.6055 18.6055 20.7175 16 20.7175ZM20.9043 12.198C20.2954 12.198 19.8018 11.7043 19.8018 11.0955C19.8018 10.4866 20.2954 9.99292 20.9043 9.99292C21.5132 9.99292 22.0068 10.4866 22.0068 11.0955C22.0066 11.7043 21.5132 12.198 20.9043 12.198Z"></path>
+                        <path d="M16 0C7.16479 0 0 7.16479 0 16C0 24.8352 7.16479 32 16 32C24.8352 32 32 24.8352 32 16C32 7.16479 24.8352 0 16 0ZM25.1321 19.7878C25.0876 20.7659 24.9321 21.4336 24.7051 22.0181C24.2278 23.2522 23.2522 24.2278 22.0181 24.7051C21.4338 24.9321 20.7659 25.0874 19.7881 25.1321C18.8083 25.1768 18.4954 25.1875 16.0002 25.1875C13.5049 25.1875 13.1921 25.1768 12.2122 25.1321C11.2344 25.0874 10.5664 24.9321 9.98218 24.7051C9.3689 24.4744 8.81372 24.1128 8.35474 23.6453C7.88745 23.1865 7.52588 22.6311 7.29517 22.0181C7.06812 21.4338 6.9126 20.7659 6.86816 19.7881C6.823 18.8081 6.8125 18.4951 6.8125 16C6.8125 13.5049 6.823 13.1919 6.86792 12.2122C6.91235 11.2341 7.06763 10.5664 7.29468 9.98193C7.52539 9.3689 7.88721 8.81348 8.35474 8.35474C8.81348 7.88721 9.3689 7.52563 9.98193 7.29492C10.5664 7.06787 11.2341 6.9126 12.2122 6.86792C13.1919 6.82324 13.5049 6.8125 16 6.8125C18.4951 6.8125 18.8081 6.82324 19.7878 6.86816C20.7659 6.9126 21.4336 7.06787 22.0181 7.29468C22.6311 7.52539 23.1865 7.88721 23.6455 8.35474C24.1128 8.81372 24.4746 9.3689 24.7051 9.98193C24.9324 10.5664 25.0876 11.2341 25.1323 12.2122C25.177 13.1919 25.1875 13.5049 25.1875 16C25.1875 18.4951 25.177 18.8081 25.1321 19.7878Z"></path>
+                    </svg>
+                    </a>
+                    <a href="" class="flex justify-center items-center w-8 h-8 mx-2" style="color: rgba(149, 156, 177, 1)">
+                    <svg width="32" height="32" viewBox="0 0 32 32" class="a1O">
+                        <path d="M16 0C7.16479 0 0 7.16479 0 16C0 24.8352 7.16479 32 16 32C24.8352 32 32 24.8352 32 16C32 7.16479 24.8352 0 16 0ZM23.3054 12.4751C23.3125 12.6326 23.3159 12.7908 23.3159 12.9497C23.3159 17.8025 19.6221 23.3984 12.8669 23.3987H12.8672H12.8669C10.793 23.3987 8.86304 22.7908 7.23779 21.749C7.52515 21.783 7.81763 21.7998 8.11377 21.7998C9.83447 21.7998 11.418 21.2129 12.675 20.2278C11.0674 20.198 9.71191 19.1362 9.24414 17.677C9.46802 17.72 9.69824 17.7434 9.93433 17.7434C10.2695 17.7434 10.5942 17.6982 10.9028 17.614C9.22241 17.2776 7.95654 15.7925 7.95654 14.0142C7.95654 13.9976 7.95654 13.9827 7.95703 13.9673C8.4519 14.2424 9.01782 14.408 9.62036 14.4265C8.63428 13.7686 7.98608 12.6438 7.98608 11.3696C7.98608 10.6968 8.16797 10.0664 8.4834 9.52368C10.2944 11.7458 13.001 13.2073 16.0532 13.3608C15.9902 13.0918 15.9578 12.8115 15.9578 12.5234C15.9578 10.4961 17.6025 8.85132 19.6306 8.85132C20.687 8.85132 21.6411 9.29785 22.3113 10.0117C23.1479 9.84668 23.9336 9.54102 24.6433 9.12036C24.3687 9.97754 23.7866 10.6968 23.0283 11.1516C23.7712 11.0627 24.4792 10.8657 25.1372 10.5732C24.6458 11.3098 24.0225 11.9568 23.3054 12.4751Z"></path>
+                    </svg>
+                    </a>
+                    <a href="" class="flex justify-center items-center w-8 h-8 mx-2" style="color: rgba(149, 156, 177, 1)">
+                    <svg width="32" height="32" viewBox="0 0 32 32" class="a1O">
+                        <path d="M16 0C7.16479 0 0 7.16479 0 16C0 24.8352 7.16479 32 16 32C24.8352 32 32 24.8352 32 16C32 7.16479 24.8352 0 16 0ZM11.3506 24.1875H7.45386V12.4641H11.3506V24.1875ZM9.40234 10.8633H9.37695C8.06934 10.8633 7.22363 9.96313 7.22363 8.83813C7.22363 7.68774 8.09521 6.8125 9.42822 6.8125C10.7612 6.8125 11.5815 7.68774 11.6069 8.83813C11.6069 9.96313 10.7612 10.8633 9.40234 10.8633ZM25.4014 24.1875H21.5051V17.9158C21.5051 16.3396 20.9409 15.2646 19.531 15.2646C18.4546 15.2646 17.8135 15.9897 17.5317 16.6897C17.4287 16.9402 17.4036 17.2903 17.4036 17.6406V24.1875H13.5071C13.5071 24.1875 13.5581 13.564 13.5071 12.4641H17.4036V14.124C17.9214 13.3252 18.8479 12.189 20.9153 12.189C23.479 12.189 25.4014 13.8645 25.4014 17.4653V24.1875Z"></path>
+                    </svg>
+                    </a>
+                </div>
+                <!-- <p class="font-medium text-base text-center" style="color: rgba(149, 156, 177, 1)">All rights reserved by © loremimpsum.com</p> -->
+            </div>
+        </div>
+        <p class="font-medium text-base text-center">Developed by © <a href="www.crudpen.com">crudpen.com</a></p>
+        </div>
+    </footer>
+    <!-- <a href="#" class="flex duration-300 transition-all rounded-full animate-bounce justify-center items-center w-[3.3rem] h-[3.3rem] md:w-16 md:h-16 z-[999] left-auto right-8 bottom-8 fixed hover:shadow-[0px_5px_10px_#040a2233]" style="color: rgba(255, 255, 255, 1); background-color: #1395ff;">
+        <span class="border-l border-t transform rotate-45 w-3 h-3 mt-[6px]" style="border-color: rgba(255, 255, 255, 1);"></span>
+    </a> -->
+    <a href="#" class="flex duration-300 transition-all bg-red-600 rounded-full animate-bounce justify-center items-center w-[3.3rem] h-[3.3rem] md:w-16 md:h-16 z-[999] left-auto right-8 bottom-8 fixed hover:shadow-[0px_5px_10px_#040a2233]" style="color: rgba(255, 255, 255, 1);">
+        <span class="border-l border-t transform rotate-45 w-3 h-3 mt-[6px]" style="border-color: rgba(255, 255, 255, 1);"></span>
+    </a>
+    <script src="/node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+    <script src="/node_modules/flowbite/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script src="./js/listen_download.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

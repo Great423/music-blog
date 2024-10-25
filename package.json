@@ -1,0 +1,21 @@
+{
+  "name": "BlogWeb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/css/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.0"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.3",
+    "aos": "^3.0.0-beta.6",
+    "flowbite": "^1.5.3",
+    "keen-slider": "^6.8.3"
+  }
+}
